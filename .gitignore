@@ -1,3 +1,44 @@
 bin
 obj
 .vs
+
+
+# dependencies
+client/fantasy-football/node_modules
+client/fantasy-football/.pnp
+client/fantasy-football/.pnp.*
+client/fantasy-football/.yarn/*
+client/fantasy-football/!.yarn/patches
+client/fantasy-football/!.yarn/plugins
+client/fantasy-football/!.yarn/releases
+client/fantasy-football/!.yarn/versions
+client/fantasy-football/
+client/fantasy-football/# testing
+client/fantasy-football//coverage
+client/fantasy-football/
+client/fantasy-football/# next.js
+client/fantasy-football//.next/
+client/fantasy-football//out/
+client/fantasy-football/
+client/fantasy-football/# production
+client/fantasy-football//build
+client/fantasy-football/
+client/fantasy-football/# misc
+client/fantasy-football/.DS_Store
+client/fantasy-football/*.pem
+client/fantasy-football/
+client/fantasy-football/# debug
+client/fantasy-football/npm-debug.log*
+client/fantasy-football/yarn-debug.log*
+client/fantasy-football/yarn-error.log*
+client/fantasy-football/.pnpm-debug.log*
+client/fantasy-football/
+client/fantasy-football/# env files (can opt-in for committing if needed)
+client/fantasy-football/.env*
+client/fantasy-football/
+client/fantasy-football/# vercel
+client/fantasy-football/.vercel
+client/fantasy-football/
+client/fantasy-football/# typescript
+client/fantasy-football/*.tsbuildinfo
+client/fantasy-football/next-env.d.ts
