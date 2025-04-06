@@ -16,7 +16,7 @@ client/fantasy-football/# testing
 client/fantasy-football/coverage
 client/fantasy-football/# next.js
 client/fantasy-football/.next/
-client/fantasy-football//out/
+client/fantasy-football/out/
 client/fantasy-football/# production
 client/fantasy-football//build
 client/fantasy-football/# misc
