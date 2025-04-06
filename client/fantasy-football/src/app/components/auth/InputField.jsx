@@ -4,9 +4,16 @@ export default function InputField({
   name,
   value,
   onChange,
-  error,
   required,
+  errorMessage,
+  isTouched,
 }) {
+  let borderColor = "border-gray-300"; // default
+
+  if (isTouched) {
+    borderColor = errorMessage ? "border-red-500" : "border-green-500";
+  }
+
   return (
     <div className="mb-4">
       <label htmlFor={name} className="block mb-1 text-white">
@@ -19,10 +26,11 @@ export default function InputField({
         value={value}
         onChange={onChange}
         required={required}
-        className={`w-full px-3 py-2 border rounded text-white ${
-          error ? "border-red-500" : "border-gray-300"
-        }`}
+        className={`w-full px-3 py-2 border rounded text-white bg-transparent focus:outline-none ${borderColor}`}
       />
+      {isTouched && errorMessage && (
+        <p className="mt-1 text-sm text-red-400">{errorMessage}</p>
+      )}
     </div>
   );
 }
