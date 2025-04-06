@@ -3,12 +3,14 @@
 import { useState } from "react";
 import AuthForm from "./AuthForm";
 import InputField from "./InputField";
+import ProfilePictureSelector from "./ProfilePictureSelection";
 
 export default function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [fieldErrors, setFieldErrors] = useState({});
   const [touchedFields, setTouchedFields] = useState({});
+  const [selectedPicture, setSelectedPicture] = useState("");
 
   const [formData, setFormData] = useState({
     nickname: "",
@@ -27,12 +29,21 @@ export default function SignUpForm() {
     validateField(name, value);
   }
 
+  function handlePictureSelect(url) {
+    setSelectedPicture((prev) => (prev === url ? "" : url));
+    setFormData((prev) => ({
+      ...prev,
+      profilePicture: prev.profilePicture === url ? "" : url,
+    }));
+  }
+
   function validateField(name, value) {
     let errorMsg = "";
 
     switch (name) {
       case "nickname":
-        if (value.length < 3 || value.length > 50) errorMsg = "Nickname must be between 3 and 50 characters long.";
+        if (value.length < 3 || value.length > 50)
+          errorMsg = "Nickname must be between 3 and 50 characters long.";
         break;
       case "email":
         if (!/\S+@\S+\.\S+/.test(value)) errorMsg = "Invalid email format.";
@@ -43,6 +54,8 @@ export default function SignUpForm() {
         break;
       case "confirmPassword":
         if (value !== formData.password) errorMsg = "Passwords do not match.";
+        break;
+      default:
         break;
     }
 
@@ -55,7 +68,8 @@ export default function SignUpForm() {
   function validateForm() {
     const errors = {};
 
-    if (formData.nickname.length < 3 || formData.nickname.length > 50) errors.nickname = "Nickname must be between 3 and 50 characters long.";
+    if (formData.nickname.length < 3 || formData.nickname.length > 50)
+      errors.nickname = "Nickname must be between 3 and 50 characters long.";
     if (!/\S+@\S+\.\S+/.test(formData.email))
       errors.email = "Invalid email format.";
     if (!formData.password || formData.password.length < 6)
@@ -82,8 +96,17 @@ export default function SignUpForm() {
       return;
     }
 
+    // Include the selected profile picture in the form data
+    const submissionData = {
+      ...formData,
+      profilePicture: selectedPicture,
+    };
+
+    console.log("Form submitted with data:", submissionData);
+
     // Simulate API call
     setTimeout(() => {
+      console.log("Form submitted with data:", submissionData);
       setIsLoading(false);
       resetForm();
     }, 1000);
@@ -100,6 +123,7 @@ export default function SignUpForm() {
     setFieldErrors({});
     setError(null);
     setTouchedFields({});
+    setSelectedPicture("");
   }
 
   return (
@@ -149,6 +173,14 @@ export default function SignUpForm() {
         errorMessage={fieldErrors.confirmPassword}
         isTouched={touchedFields.confirmPassword}
       />
+
+      <div className="mb-4">
+        <label className="block mb-2 text-white">Select a Profile Picture:</label>
+        <ProfilePictureSelector
+          selectedPicture={selectedPicture}
+          onSelect={handlePictureSelect}
+        />
+      </div>
     </AuthForm>
   );
 }
