@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import InputField from "@/app/components/auth/InputField";
-import { signIn } from "@/app/api/auth/route";
 import AuthForm from "./AuthForm";
 
 export default function SignInForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -16,7 +15,6 @@ export default function SignInForm() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     setIsLoading(true);
 
     const { email, password } = formData;
@@ -44,10 +42,7 @@ export default function SignInForm() {
   }
 
   function resetForm() {
-    setFormData({
-      email: "",
-      password: "",
-    });
+    setFormData({ email: "", password: "" });
     setError(null);
   }
 
@@ -62,7 +57,7 @@ export default function SignInForm() {
         value={formData.email}
         onChange={handleChange}
         error={error}
-        required={true}
+        required
       />
 
       <InputField
@@ -72,7 +67,7 @@ export default function SignInForm() {
         value={formData.password}
         onChange={handleChange}
         error={error}
-        required={true}
+        required
       />
     </AuthForm>
   );
