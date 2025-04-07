@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+
 import InputField from "@/app/components/auth/InputField";
 import AuthForm from "./AuthForm";
+import { signIn } from "@/app/api/auth";
+import { login } from "@/lib/store/authSlice";
 
 export default function SignInForm() {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -16,6 +23,7 @@ export default function SignInForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
+    setError(null); // clear previous errors
 
     const { email, password } = formData;
 
@@ -23,14 +31,23 @@ export default function SignInForm() {
       const response = await signIn(email, password);
 
       if (response.error) {
-        setError(response.error);
+        setError(response.error); // error returned from backend
         return;
       }
 
-      if (response.statusCode === 200) {
-        console.log("Logged in successfully:", response.data);
-        resetForm();
+      if (response.result.token && response.statusCode === 200) {
+        dispatch(
+          login({
+            user: response.result.nickname,
+            token: response.result.token,
+          })
+        );
       }
+
+      router.push('/');
+      resetForm();
+    } catch (err) {
+      setError("An error occurred while signing in.");
     } finally {
       setIsLoading(false);
     }

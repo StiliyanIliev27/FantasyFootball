@@ -4,6 +4,7 @@ using FantasyFootball.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FantasyFootball.Infrastructure.Migrations
 {
     [DbContext(typeof(FantasyFootballDbContext))]
-    partial class FantasyFootballDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250407185219_updatedAllLeaguesLogoUrls")]
+    partial class updatedAllLeaguesLogoUrls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

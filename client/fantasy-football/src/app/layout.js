@@ -1,6 +1,10 @@
+import { Provider } from "react-redux";
+import { store } from "../lib/store/store";
+
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +15,9 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         <main className="min-h-screen">
-          {children}
+          <StoreProvider>
+            {children}
+          </StoreProvider>
         </main>
         <Footer />
       </body>

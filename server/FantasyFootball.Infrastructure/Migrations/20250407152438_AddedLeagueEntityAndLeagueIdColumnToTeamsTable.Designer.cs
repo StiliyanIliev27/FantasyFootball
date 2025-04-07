@@ -4,6 +4,7 @@ using FantasyFootball.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FantasyFootball.Infrastructure.Migrations
 {
     [DbContext(typeof(FantasyFootballDbContext))]
-    partial class FantasyFootballDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250407152438_AddedLeagueEntityAndLeagueIdColumnToTeamsTable")]
+    partial class AddedLeagueEntityAndLeagueIdColumnToTeamsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,7 +81,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         {
                             Id = "2b2f2f00-bbbb-bbbb-bbbb-222222222222",
                             Country = "Spain",
-                            LogoUrl = "https://pngdownload.io/wp-content/uploads/2023/12/LaLiga-Logo-PNG-Official-Symbol-for-Football-League-Transparent-jpg.webp",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/en/9/92/La_Liga_Santander.svg",
                             Name = "La Liga"
                         },
                         new
@@ -92,28 +95,28 @@ namespace FantasyFootball.Infrastructure.Migrations
                         {
                             Id = "4d4f4f00-dddd-dddd-dddd-444444444444",
                             Country = "Italy",
-                            LogoUrl = "https://logolook.net/wp-content/uploads/2023/11/Italian-Serie-A-Logo.png",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/en/e/e1/Serie_A_logo_%282019%29.svg",
                             Name = "Serie A"
                         },
                         new
                         {
                             Id = "5e5f5f00-eeee-eeee-eeee-555555555555",
                             Country = "France",
-                            LogoUrl = "https://static.cdnlogo.com/logos/l/37/ligue-1.png",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/en/c/c7/Ligue1.svg",
                             Name = "Ligue 1"
                         },
                         new
                         {
                             Id = "6f6f6f00-ffff-ffff-ffff-666666666666",
                             Country = "Netherlands",
-                            LogoUrl = "https://upload.wikimedia.org/wikipedia/commons/4/46/Eredivisie_nuovo_logo.png",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/en/5/5e/Eredivisie_logo_%282017%29.svg",
                             Name = "Eredivisie"
                         },
                         new
                         {
                             Id = "7g7f7f00-gggg-gggg-gggg-777777777777",
                             Country = "Portugal",
-                            LogoUrl = "https://upload.wikimedia.org/wikipedia/commons/5/5a/S%C3%ADmbolo_da_Liga_Portuguesa_de_Futebol_Profissional.png",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/en/2/2d/Liga_Portugal_logo.svg",
                             Name = "Primeira Liga"
                         },
                         new
@@ -127,14 +130,14 @@ namespace FantasyFootball.Infrastructure.Migrations
                         {
                             Id = "9i9f9f00-iiii-iiii-iiii-999999999999",
                             Country = "Brazil",
-                            LogoUrl = "https://e7.pngegg.com/pngimages/985/30/png-clipart-2018-campeonato-brasileiro-serie-a-campeonato-brasileiro-serie-b-campeonato-brasileiro-serie-c-brazil-1959-campeonato-brasileiro-serie-a-football-text-logo-thumbnail.png",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/commons/b/be/Campeonato_Brasileiro_Série_A_logo.png",
                             Name = "Brasileirão"
                         },
                         new
                         {
                             Id = "0j0f0f00-jjjj-jjjj-jjjj-000000000000",
                             Country = "Argentina",
-                            LogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Logo_de_la_Liga_Profesional_de_F%C3%BAtbol_de_Argentina.svg/1200px-Logo_de_la_Liga_Profesional_de_F%C3%BAtbol_de_Argentina.svg.png",
+                            LogoUrl = "https://upload.wikimedia.org/wikipedia/en/2/27/Liga_Profesional_de_Fútbol_%28Argentina%29_logo.svg",
                             Name = "Argentine Primera División"
                         });
                 });
@@ -176,7 +179,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bd2f0065-3ecf-40e7-aace-2a7f94ee2a57",
+                            Id = "1eca6925-c9e5-4dd0-8864-22d54e872dfc",
                             FirstName = "Alisson",
                             LastName = "Becker",
                             MarketValue = 60000000m,
@@ -186,7 +189,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "1d4c086b-eeae-49f8-a633-c204ef2f7585",
+                            Id = "2e9c383b-dba1-483d-a3ab-f82d306d2916",
                             FirstName = "Thibaut",
                             LastName = "Courtois",
                             MarketValue = 55000000m,
@@ -196,7 +199,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "82f97032-eb68-4d6a-897c-932d25381361",
+                            Id = "5ccd5bf4-0b6d-4dc0-96e8-630211b29849",
                             FirstName = "Virgil",
                             LastName = "van Dijk",
                             MarketValue = 70000000m,
@@ -206,7 +209,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "b04eb71d-c461-44fc-ba2b-14064a086b4a",
+                            Id = "5612fa2c-7547-49c2-8b25-3161799c4606",
                             FirstName = "Rúben",
                             LastName = "Dias",
                             MarketValue = 75000000m,
@@ -216,7 +219,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "e0fdd787-847f-4920-a9d1-3493162aa176",
+                            Id = "06aa4fb4-3f94-450a-a838-398dc6bd8677",
                             FirstName = "João",
                             LastName = "Cancelo",
                             MarketValue = 65000000m,
@@ -226,7 +229,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "fe9c0c29-eed4-448c-82b0-f55d74180989",
+                            Id = "7f1a4af5-03bc-439a-95e6-5d009af80e0a",
                             FirstName = "Theo",
                             LastName = "Hernández",
                             MarketValue = 60000000m,
@@ -236,7 +239,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "f47634ad-9709-44c9-a85e-8576555f82fb",
+                            Id = "6a73e040-a993-41b8-b987-5238fa997ef1",
                             FirstName = "Kevin",
                             LastName = "De Bruyne",
                             MarketValue = 80000000m,
@@ -246,7 +249,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "08453d7f-2b2f-48ef-89f3-8c55781b5ba7",
+                            Id = "4126356f-b068-4831-bea0-9bb5ee74af91",
                             FirstName = "Luka",
                             LastName = "Modrić",
                             MarketValue = 20000000m,
@@ -256,7 +259,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "c0127da1-a89a-4eab-a8bf-e5678bf4ca3c",
+                            Id = "6fed43a7-e4d5-4f24-b901-ae168a4a800f",
                             FirstName = "Rodri",
                             LastName = "Hernandez",
                             MarketValue = 70000000m,
@@ -266,7 +269,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "171445e2-5d99-403a-acf6-d47fd2a07260",
+                            Id = "8a5e73ce-798e-42e8-beeb-cdd2517a959a",
                             FirstName = "Federico",
                             LastName = "Valverde",
                             MarketValue = 85000000m,
@@ -276,7 +279,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "eeedb98a-cde1-4701-90a2-6915d4763c7f",
+                            Id = "70faad43-e99b-4de4-a766-f7c4365cb356",
                             FirstName = "Kylian",
                             LastName = "Mbappé",
                             MarketValue = 180000000m,
@@ -286,7 +289,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "c94c5663-c1ab-434a-9583-98e0c578e5a4",
+                            Id = "a0455607-184a-43f2-8a29-462c7c7a3cd1",
                             FirstName = "Erling",
                             LastName = "Haaland",
                             MarketValue = 200000000m,
@@ -296,7 +299,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "2b95f465-4bee-4d57-b08a-6cc31e803126",
+                            Id = "f10d8a15-ebf2-4ffa-8e61-8c63debf9944",
                             FirstName = "Lionel",
                             LastName = "Messi",
                             MarketValue = 40000000m,
@@ -306,7 +309,7 @@ namespace FantasyFootball.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "5d0b04f7-ac12-415c-9c0d-c43cf0b592e9",
+                            Id = "48890162-187e-4191-adf9-f04fc1a8af87",
                             FirstName = "Harry",
                             LastName = "Kane",
                             MarketValue = 100000000m,

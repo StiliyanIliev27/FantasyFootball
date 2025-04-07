@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static FantasyFootball.Common.DatabaseModelsConstants.DataConstants.Team;
 
 namespace FantasyFootball.Infrastructure.Data.Models
@@ -28,5 +29,10 @@ namespace FantasyFootball.Infrastructure.Data.Models
             ErrorMessage = TeamHomeTownAndCountryErrorMessage)]
         public string HomeCountry { get; set; } = null!;
         public string? TeamIconUrl { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(LeagueId))]
+        public string LeagueId { get; set; } = null!;
+        public League? League { get; set; }
     }
 }

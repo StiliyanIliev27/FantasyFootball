@@ -31,5 +31,13 @@
             public const string PlayerNameLengthErrorMessage = "Player name must be between 3 and 50 characters long";
         }
 
+        public static class League
+        {
+            public const int LeagueNameMinLength = 3;
+            public const int LeagueNameMaxLength = 50;
+
+            public const string LeagueNameLengthErrorMessage = "League name must be between 3 and 50 characters long";
+        }
+
     }
 }
